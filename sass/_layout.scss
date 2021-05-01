@@ -10,7 +10,7 @@
     font-size: 1.4rem;
     height: 7rem;
     background-color: #fff;
-    border-bottom: 1px solid var(--color-grey-light-2);
+    border-bottom: var(--line);
     display: flex;
 
     justify-content: space-between;
@@ -159,7 +159,7 @@
             background-color: var(--color-primary);
             transform: scaleY(0);
             transform-origin: bottom;
-            transition: transform .2s, width .4s cubic-bezier(1, 0, 0, 1) .2s, bacgkround-color .1s;
+            transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, bacgkround-color 0.1s;
         }
 
         &__item:hover::before,
@@ -206,5 +206,25 @@
 
     flex: 1;
     //TEST
-    height: 80rem;
+
+    & .detail {
+        font-size: 1.4rem;
+        display: flex; 
+        padding: 4.5rem;
+        background-color: var(--color-grey-light-1);
+
+        & .description {
+            flex: 0 0 60%;
+        }
+
+        .user-reviews {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+    }
+
+    
 }
