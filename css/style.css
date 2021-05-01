@@ -62,10 +62,10 @@ body {
       background-color: var(--color-grey-light-2);
       border: none;
       color: inherit;
-      padding: .7rem 2rem;
+      padding: 0.7rem 2rem;
       border-radius: 100px;
       width: 90%;
-      transition: all .2s;
+      transition: all 0.2s;
       margin-right: -3.5rem; }
       .header .search__input:focus {
         outline: none;
@@ -106,7 +106,7 @@ body {
       width: 2.25rem;
       fill: var(--color-gren-dark-2); }
     .header .user-nav__notification {
-      font-size: .8rem;
+      font-size: 0.8rem;
       height: 1.75rem;
       width: 1.75rem;
       border-radius: 50%;
@@ -128,9 +128,72 @@ body {
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
-  flex: 0 0 18%; }
+  flex: 0 0 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-grey-dark-1); }
+  .sidebar .side-nav {
+    font-size: 1.4rem;
+    list-style-type: none;
+    margin-top: 3.5rem; }
+    .sidebar .side-nav__item {
+      position: relative; }
+      .sidebar .side-nav__item:not(:last-child) {
+        margin-bottom: 0.5rem; }
+    .sidebar .side-nav__item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 3px;
+      background-color: var(--color-primary);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, bacgkround-color 0.1s; }
+    .sidebar .side-nav__item:hover::before, .sidebar .side-nav__item--active::before {
+      transform: scaleY(1);
+      width: 100%; }
+    .sidebar .side-nav__item:active::before {
+      background-color: var(--color-primary-light); }
+    .sidebar .side-nav__link:link, .sidebar .side-nav__link:visited {
+      text-decoration: none;
+      color: var(--color-grey-light-1);
+      text-transform: uppercase;
+      display: block;
+      padding: 1.5rem 3rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 10; }
+    .sidebar .side-nav__icon {
+      width: 1.75rem;
+      height: 1.75rem;
+      fill: currentColor;
+      margin-right: 2rem; }
+  .sidebar .legal {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 2.5rem;
+    color: var(--color-grey-light-4); }
 
 .hotel-view {
   background-color: #fff;
-  background-color: orangered;
-  flex: 1; }
+  flex: 1;
+  height: 80rem; }
+
+.gallery {
+  display: flex; }
+  .gallery__photo {
+    width: 100%;
+    display: block; }
+
+.overview {
+  display: flex; }
+  .overview__stars {
+    margin-right: auto; }
+  .overview__icon-star, .overview__icon-location {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: var(--color-primary); }
