@@ -53,16 +53,30 @@
         justify-content: center;
         flex-direction: column;
 
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+                            
+        }
+
         &-average {
             font-size: 2.25rem;
             font-weight: 300;
             margin-bottom: -3px;
+            @media only screen and (max-width: $bp-small) {
+                font-size: 1.8rem;
+                                
+            }
         }
 
         &-count {
             font-size: 0.8rem;
             text-transform: uppercase;
             transition: transform 0.5s;
+
+            @media only screen and (max-width: $bp-small) {
+                font-size: .5rem;
+                                
+            }
 
             &:hover {
                 transform: scale(2);
@@ -88,7 +102,7 @@
 
     &:hover {
         color: var(--color-grey-dark-1);
-        
+
         span {
             margin-left: 8px;
         }
@@ -106,11 +120,11 @@
     }
 
     50% {
-        transform: scale(1.3) rotate(180deg);
+        transform: scale(1.2);
     }
 
     100% {
-        transform: scale(1) rotate(360deg);
+        transform: scale(1);
     }
 }
 
@@ -169,6 +183,7 @@
         }
 
         &__friends {
+            display: flex; 
         }
         &__photo {
             box-sizing: content-box;
@@ -178,7 +193,7 @@
             border: 3px solid #fff;
             transition: all 0.5s;
             &:not(:last-child) {
-                margin-right: -1.5rem;
+                margin-right: -2rem;
             }
 
             &:not(:last-child):hover {
@@ -250,5 +265,79 @@
         font-family: sans-serif;
         line-height: 1;
         z-index: 1;
+    }
+}
+
+.cta {
+    padding: 3.5rem 0;
+    text-align: center;
+
+    @media (max-width: $bp-medium) {
+        padding: 2.5rem 0;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 1rem 1rem;
+        
+
+    }
+
+    &__book-now {
+        font-size: 2rem;
+        font-weight: 300;
+        margin-bottom: 2.5rem;
+        text-transform: uppercase;
+    }
+}
+
+.btn {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border: none;
+    background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    & > * {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        transition: all 0.2s;
+
+    }
+
+
+    &--visible {
+        padding: 2rem 7.5rem;
+    }
+
+    &--invisible {
+        position: absolute;
+        left: 0;
+        top: -100%;
+        padding: 2rem 0;
+
+    }
+
+    &:hover {
+        background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+
+    }
+
+    &:hover &--visible {
+        transform: translateY(100%)
+    }
+
+    &:hover &--invisible {
+        top: 0;
+    }
+
+    &:focus {
+        outline: none;
+        animation: pulsate 1s infinite;
     }
 }
